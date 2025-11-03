@@ -2,6 +2,11 @@ import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+  runtimeConfig: {
+    public: {
+      assemblyAiApiKey: process.env.ASSEMBLY_AI_API || ''
+    }
+  },
   devtools: { enabled: true },
   pages: true,
   css: [

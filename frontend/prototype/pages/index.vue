@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { navigateTo } from 'nuxt/app';
+
+</script>
+
 <template>
   <client-only>
     <div class="relative w-screen h-screen overflow-hidden bg-gray-50">
@@ -20,12 +25,17 @@
                     Where Conversations Become Actions
                 </div>
             </div>
-            <button class="
+            <button 
+              class="
                 py-3 px-5 bg-primary/90 border-4 border-primary rounded-md
                 hover:shadow-2xl
                 transition-all ease-in-out duration-300
                 font-open-sans font-semibold text-lg text-gray-50
-            ">
+              "
+              @click="() => {
+                navigateTo('/meeting')
+              }"
+            >
                 Check It Out!
             </button>
       </div>

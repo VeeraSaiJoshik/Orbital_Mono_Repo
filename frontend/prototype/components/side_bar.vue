@@ -8,16 +8,13 @@
     >
       <!-- Each Page -->
       <div class="w-full shrink-0 h-full">
-        <Summary_screen />
-      </div>
-      <div class="w-full shrink-0 h-full">
         <Chat_screen :chats="chat"/>
       </div>
       <div class="w-full shrink-0 h-full">
         <Actions_screen />
       </div>
     </div>
-    <div class="flex font-sans font-[600] space-x-2 p-[3px] bg-gray-100 rounded-md transition-all ease-in-out duration-300">
+    <div class="flex font-sans font-[600] space-x-1 p-[3px] bg-gray-100 rounded-md transition-all ease-in-out duration-300">
       <button
         :class="tabClass(SideBarState.CHAT)"
         @click="() => changeTab(SideBarState.CHAT)">
@@ -41,7 +38,7 @@ import Chat_screen from './chat_screen.vue';
 import Actions_screen from './actions_screen.vue';
 import { Chat } from '../models/call_models';
 
-const sideBarState = ref<SideBarState>(SideBarState.SUMMARY)
+const sideBarState = ref<SideBarState>(SideBarState.CHAT)
 const scrollContainer = ref<HTMLElement | null>(null)
 
 const tabClass = (tab: SideBarState) => [
@@ -53,7 +50,6 @@ const tabClass = (tab: SideBarState) => [
 
 watch(sideBarState, (newVal) => {
   const index = {
-    [SideBarState.SUMMARY]: 0,
     [SideBarState.CHAT]: 1,
     [SideBarState.ACTIONS]: 2
   }[newVal]
